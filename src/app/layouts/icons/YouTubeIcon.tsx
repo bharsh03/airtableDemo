@@ -1,0 +1,44 @@
+interface YouTubeIconProps {
+  size?: number;
+  className?: string;
+}
+
+const YouTubeIcon = ({ size = 25, className = "" }: YouTubeIconProps) => {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 25 19"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <g clipPath="url(#youtube_clip0)">
+        <mask
+          id="youtube_mask0"
+          style={{ maskType: "luminance" }}
+          maskUnits="userSpaceOnUse"
+          x="2"
+          y="2"
+          width="21"
+          height="15"
+        >
+          <path d="M2.45099 2.2959H22.45V16.2959H2.45099V2.2959Z" fill="white" />
+        </mask>
+        <g mask="url(#youtube_mask0)">
+          <path
+            d="M22.034 4.48013C21.9199 4.05622 21.6966 3.66965 21.3863 3.35906C21.0761 3.04846 20.6898 2.8247 20.266 2.71013C18.705 2.28613 12.45 2.28613 12.45 2.28613C12.45 2.28613 6.19399 2.28613 4.63599 2.70513C4.21186 2.81989 3.8254 3.04423 3.51541 3.35562C3.20542 3.66701 2.98283 4.05449 2.86999 4.47913C2.45099 6.04013 2.45099 9.29313 2.45099 9.29313C2.45099 9.29313 2.45099 12.5481 2.86899 14.1071C2.98301 14.531 3.20646 14.9175 3.51695 15.2278C3.82743 15.5381 4.21403 15.7614 4.63799 15.8751C6.19699 16.2931 12.451 16.2931 12.451 16.2931C12.451 16.2931 18.707 16.2931 20.266 15.8751C20.6896 15.7609 21.0759 15.5375 21.3861 15.2273C21.6964 14.917 21.9198 14.5308 22.034 14.1071C22.45 12.5471 22.45 9.29313 22.45 9.29313C22.45 9.29313 22.445 6.03913 22.034 4.48013ZM10.45 12.2921V6.29213L15.645 9.29213L10.45 12.2921Z"
+            fill="currentColor"
+          />
+        </g>
+      </g>
+      <defs>
+        <clipPath id="youtube_clip0">
+          <rect width="21" height="15" fill="white" transform="translate(2 2)" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+export default YouTubeIcon;
