@@ -1,5 +1,6 @@
 import Image from "next/image"
 import ArrowRightIcon from "../icons/ArrowRightIcon"
+import integrationImage from "@/assets/images/div.LogoCarouselGridSection_logoMarqueeWrap__Pbijm_mask-group.png"
 
 export default function IntegrationSection() {
   return (
@@ -25,7 +26,7 @@ export default function IntegrationSection() {
 
         <div className="flex-1">
           <Image
-            src="/images/div.LogoCarouselGridSection_logoMarqueeWrap__Pbijm_mask-group.png"
+            src={integrationImage}
             alt="Integration logos"
             width={900}
             height={240}

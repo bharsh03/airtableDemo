@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Container from "../ui/Container"
+import footerLogoSvg from "@/assets/icons/Link → SVG.svg"
 import FacebookIcon from "../icons/FacebookIcon"
 import LinkedInIcon from "../icons/LinkedInIcon"
 import InstagramIcon from "../icons/InstagramIcon"
@@ -66,7 +67,7 @@ export default function Footer() {
     <footer className="bg-white pt-8 pb-8">
       <Container>
         <div className="flex items-center mb-6">
-          <img src="/icons/Link → SVG.svg" width={32} height={27} alt="Airtable" />
+          <img src={footerLogoSvg} width={32} height={27} alt="Airtable" />
           <nav className="hidden lg:flex items-center gap-8 ml-8.5">
             {navLinks.map(link => (
               <a

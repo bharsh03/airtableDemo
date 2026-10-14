@@ -3,37 +3,40 @@
 import { useState } from "react"
 import Image from "next/image"
 import Button from "../ui/Button"
+import profileIconSvg from "@/assets/icons/profileicon.svg"
 import EquinoxLogo from "../icons/EquinoxLogo"
 import SliderPrevButton from "../icons/SliderPrevButton"
 import SliderNextButton from "../icons/SliderNextButton"
+import slideBackground from "@/assets/images/div.VideoPane_slideBackground__21zFk.png"
+import productImg from "@/assets/images/span.png"
 
 const slides = [
   {
-    backgroundImage: "/images/div.VideoPane_slideBackground__21zFk.png",
+    backgroundImage: slideBackground.src,
     stat: "40x",
     statLabel: "more on-demand content",
     quote: "We were able to produce and deliver so much more than we ever had before.",
     personName: "Lindsay Puccio",
     personTitle: "Product Manager, Equinox",
-    productImage: "/images/span.png",
+    productImage: productImg.src,
   },
   {
-    backgroundImage: "/images/div.VideoPane_slideBackground__21zFk.png",
+    backgroundImage: slideBackground.src,
     stat: "40x",
     statLabel: "more on-demand content",
     quote: "We were able to produce and deliver so much more than we ever had before.",
     personName: "Lindsay Puccio",
     personTitle: "Product Manager, Equinox",
-    productImage: "/images/span.png",
+    productImage: productImg.src,
   },
   {
-    backgroundImage: "/images/div.VideoPane_slideBackground__21zFk.png",
+    backgroundImage: slideBackground.src,
     stat: "40x",
     statLabel: "more on-demand content",
     quote: "We were able to produce and deliver so much more than we ever had before.",
     personName: "Lindsay Puccio",
     personTitle: "Product Manager, Equinox",
-    productImage: "/images/span.png",
+    productImage: productImg.src,
   },
 ]
 
@@ -86,7 +89,7 @@ export default function ResultsSection() {
             </p>
             <div className="flex items-center gap-3">
               <img
-                src="/icons/profileicon.svg"
+                src={profileIconSvg}
                 width={48}
                 height={48}
                 alt={slide.personName}

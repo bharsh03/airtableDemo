@@ -1,6 +1,7 @@
 import Container from "../ui/Container"
 import Button from "../ui/Button"
 import PlayIcon from "../icons/PlayIcon"
+import flottingCTA from "@/assets/images/FlottingCTA.jpg"
 
 export default function FloatingCTASection() {
   return (
@@ -9,7 +10,7 @@ export default function FloatingCTASection() {
         <div className="bg-purple-50 rounded-3xl overflow-hidden flex flex-col lg:flex-row">
           <div
             className="flex-1 min-h-87.5 bg-cover bg-center bg-no-repeat relative"
-            style={{ backgroundImage: "url('/images/FlottingCTA.jpg')" }}
+            style={{ backgroundImage: `url('${flottingCTA.src}')` }}
           >
             <button className="absolute bottom-4 right-6 inline-flex items-center gap-1.5 text-sm font-medium text-neutral-400 bg-transparent hover:text-neutral-700 transition-colors">
               Play

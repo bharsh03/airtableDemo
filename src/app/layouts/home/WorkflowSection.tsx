@@ -5,6 +5,7 @@ import Image from "next/image"
 import Container from "../ui/Container"
 import ArrowRightIcon from "../icons/ArrowRightIcon"
 import ChevronRightIcon from "../icons/ChevronRightIcon"
+import cellImage from "@/assets/images/div.Cell-module_cell__1M0h9.png"
 
 const DURATION = 5000
 
@@ -80,7 +81,7 @@ export default function WorkflowSection() {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
           <div className="flex-1 overflow-hidden">
             <Image
-              src="/images/div.Cell-module_cell__1M0h9.png"
+              src={cellImage}
               alt="Airtable workflow dashboard"
               width={765}
               height={590}

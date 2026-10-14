@@ -1,34 +1,37 @@
 import Image from "next/image"
 import Button from "../ui/Button"
+import cardImage1 from "@/assets/images/div.CardImg-module_cardImageTop_.png"
+import cardImage2 from "@/assets/images/div.CardImg-module_cardImageTop__3f9.png"
+import cardImage3 from "@/assets/images/div.CardImg-module_cardImageTop__3f9q_.png"
 
 const cards = [
   {
     type: "BLOG",
-    image: "/images/div.CardImg-module_cardImageTop_.png",
+    image: cardImage1.src,
     title: "Forrester Study: The Crisis of Fractured Organizations",
     description: "Read the full study to learn about how silos impact your business, and why it's time to rebuild the connections between your teams.",
   },
   {
     type: "BLOG",
-    image: "/images/div.CardImg-module_cardImageTop__3f9.png",
+    image: cardImage2.src,
     title: "How 6 world-class companies make an outsized impact",
     description: "Discover how leading global companies are using connected apps to dismantle silos.",
   },
   {
     type: "WEBINAR",
-    image: "/images/div.CardImg-module_cardImageTop__3f9q_.png",
+    image: cardImage3.src,
     title: "Airtable Leaders Forum: Product Roadmap",
     description: "Get a sneak peek of the roadmap from Ilan Frank, VP of Product at Airtable, and see the future of Airtable as a connected apps platform.",
   },
   {
     type: "BLOG",
-    image: "/images/div.CardImg-module_cardImageTop_.png",
+    image: cardImage1.src,
     title: "Streamline product operations with Airtable",
     description: "Learn how teams connect data and workflows with a single source of truth to automate work to free up time.",
   },
   {
     type: "WEBINAR",
-    image: "/images/div.CardImg-module_cardImageTop__3f9.png",
+    image: cardImage2.src,
     title: "Scale operations across your business",
     description: "See how leading teams use Airtable to connect data, automate processes, and drive efficiency at scale.",
   },
