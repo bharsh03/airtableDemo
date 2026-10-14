@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../assets/css/common.css";
 
 @theme {
   /* Primary — interactive blues: buttons, links, active states */
@@ -56,17 +57,6 @@
   }
 }
 
-@utility section48 {
-  padding: 48px 0px;
-}
-
-@utility section96 {
-  padding: 96px 0px;
-}
-
-@utility section72 {
-  padding: 72px 0px;
-}
 
 @utility btn-outline-shadow {
   box-shadow:
@@ -74,5 +64,20 @@
     0px 1px 3px 0px #00000014,
     0px 0px 2px 0px #00000014,
     0px 0px 1px 0px #00000052;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px); 
 }
+
+/* 
+grid icons 
+
+infinite scroll 
+
+container changes
+
+image strech
+
+naming proper and css file 
+
+responsive 
+
+*/

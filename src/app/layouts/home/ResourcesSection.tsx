@@ -36,7 +36,7 @@ const cards = [
 
 export default function ResourcesSection() {
   return (
-    <section className="section72 bg-neutral-50">
+    <section className="common-section-medium bg-neutral-50">
       <div className="flex flex-col lg:flex-row items-start gap-8 px-6 md:px-8 lg:px-27">
         <h2 className="flex-1 text-xl font-medium text-secondary-800 leading-12 tracking-normal">
           Looking for inspiration?<br />

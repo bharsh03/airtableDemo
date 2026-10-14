@@ -63,7 +63,7 @@ export default function WorkflowSection() {
   }
 
   return (
-    <section className="section96 bg-white">
+    <section className="common-section-large bg-white">
       <Container className="flex flex-col gap-12">
 
         <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16  lg:px-32.75">
@@ -88,10 +88,10 @@ export default function WorkflowSection() {
             />
           </div>
 
-          <div className="flex flex-col w-full lg:w-120 lg:shrink-0">
-            <div className="relative w-full h-0.5 bg-gray-100 mb-1">
+          <div className="flex flex-col w-full lg:w-120 lg:shrink-0 ">
+            <div className="relative h-1 bg-gray-100 mb-1 rounded-t-xl">
               <div
-                className="absolute left-0 top-0 h-full bg-accent-300"
+                className="absolute left-0 top-0 rounded-t-xl h-full bg-accent-300"
                 style={{ width: `${progress}%` }}
               />
             </div>

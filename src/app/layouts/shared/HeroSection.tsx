@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Button from "../ui/Button";
+import Container from "../ui/Container";
 
 interface BadgeProps {
   icon: React.ReactNode;
@@ -40,10 +41,10 @@ export default function HeroSection({
 }: HeroSectionProps) {
   return (
     <section
-      className="section96 relative overflow-hidden bg-cover bg-center bg-no-repeat"
+      className="common-section-large relative overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className="flex flex-col lg:flex-row items-center gap-12 px-6 md:px-8 lg:px-16">
+      <Container className="flex flex-col lg:flex-row items-center gap-12 px-6 md:px-8 lg:px-16">
         <div className="flex-1 flex flex-col gap-6">
           {badge && (
             <a
@@ -96,7 +97,7 @@ export default function HeroSection({
             priority
           />
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

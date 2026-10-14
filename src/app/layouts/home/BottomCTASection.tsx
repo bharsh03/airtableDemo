@@ -4,7 +4,7 @@ import Button from "../ui/Button";
 
 export default function BottomCTASection() {
   return (
-    <section className="section48 bg-white">
+    <section className="common-section-small bg-white">
       <Container>
         <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-[1fr_auto]">
           <h2 className="text-3xl font-medium lg:w-150 xl:w-200 leading-10 tracking-normal text-secondary-800">

@@ -4,7 +4,7 @@ import PlayIcon from "../icons/PlayIcon"
 
 export default function FloatingCTASection() {
   return (
-    <section className="section48 bg-white">
+    <section className="common-section-small bg-white">
       <Container>
         <div className="bg-purple-50 rounded-3xl overflow-hidden flex flex-col lg:flex-row">
           <div

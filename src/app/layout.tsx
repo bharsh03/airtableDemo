@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "./layouts/common/Header";
 import Announcementbar from "./layouts/common/Announcementbar";
@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.variable} font-roboto antialiased w-full`}
+        className={`${roboto.variable} ${roboto.className} antialiased w-full`}
       >
         <Announcementbar/>
         <Header/>

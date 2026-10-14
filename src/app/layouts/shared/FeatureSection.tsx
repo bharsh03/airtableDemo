@@ -72,7 +72,7 @@ export default function FeatureSection({
   )
 
   return (
-    <section className={`section96 ${bgClassName}`}>
+    <section className={`common-section-large ${bgClassName}`}>
       <Container
         className={`flex flex-col ${imagePosition === "left" ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-12`}
       >

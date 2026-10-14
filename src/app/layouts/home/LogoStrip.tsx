@@ -1,4 +1,3 @@
-import Container from "../ui/Container"
 import ColeHaanLogo from "../icons/ColeHaanLogo"
 import ExpediaLogo from "../icons/ExpediaLogo"
 import LevelsLogo from "../icons/LevelsLogo"
@@ -6,17 +5,25 @@ import TimeLogo from "../icons/TimeLogo"
 import ShopifyWordmark from "../icons/ShopifyWordmark"
 import MediumWordmark from "../icons/MediumWordmark"
 
+const logos = [
+  <ColeHaanLogo key="cole" width={100} height={30} />,
+  <ExpediaLogo key="expedia" width={132} height={30} />,
+  <LevelsLogo key="levels" width={100} height={30} />,
+  <TimeLogo key="time" width={100} height={30} />,
+  <ShopifyWordmark key="shopify" width={100} height={30} />,
+  <MediumWordmark key="medium" width={100} height={30} />,
+]
+
 export default function LogoStrip() {
   return (
-    <section className="section48">
-      <Container className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 items-center justify-items-center gap-8 lg:gap-6">
-        <ColeHaanLogo width={100} height={30} />
-        <ExpediaLogo width={132} height={30} />
-        <LevelsLogo width={100} height={30} />
-        <TimeLogo width={100} height={30} />
-        <ShopifyWordmark width={100} height={30} />
-        <MediumWordmark width={100} height={30} />
-      </Container>
+    <section className="common-section-small overflow-hidden">
+      <div className="flex w-max animate-marquee">
+        {[...logos, ...logos].map((logo, i) => (
+          <div key={i} className="flex items-center justify-center px-12 shrink-0">
+            {logo}
+          </div>
+        ))}
+      </div>
     </section>
   )
 }

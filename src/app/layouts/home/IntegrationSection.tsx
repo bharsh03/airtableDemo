@@ -3,7 +3,7 @@ import ArrowRightIcon from "../icons/ArrowRightIcon"
 
 export default function IntegrationSection() {
   return (
-    <section className="section72 bg-white overflow-hidden">
+    <section className="common-section-medium bg-white overflow-hidden">
       <div className="flex flex-col lg:flex-row items-center gap-12 ps-6 md:ps-8 lg:ps-26.25">
 
           <div className="flex flex-col gap-6 w-full lg:w-95 lg:shrink-0">
