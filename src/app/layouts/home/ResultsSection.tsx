@@ -3,8 +3,8 @@
 import { useState } from "react"
 import Image from "next/image"
 import Button from "../ui/Button"
-import profileIconSvg from "@/assets/icons/profileicon.svg"
 import EquinoxLogo from "../icons/EquinoxLogo"
+import ProfileIcon from "../icons/ProfileIcon"
 import SliderPrevButton from "../icons/SliderPrevButton"
 import SliderNextButton from "../icons/SliderNextButton"
 import slideBackground from "@/assets/images/div.VideoPane_slideBackground__21zFk.png"
@@ -50,15 +50,15 @@ export default function ResultsSection() {
 
   return (
     <section className="bg-white overflow-hidden">
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 lg:items-start ps-6 md:ps-8 lg:ps-43 pe-6 md:pe-8 lg:pe-16 pt-12 pb-29.5">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 lg:items-start ps-6 md:ps-8 lg:ps-43 pe-6 md:pe-8 lg:pe-16 pt-12 pb-29.5 text-center lg:text-start">
         <h2 className="text-3xl md:text-4xl font-medium text-secondary-800 leading-12 tracking-normal">
           Results you can measure
         </h2>
-        <div className="flex flex-col gap-5 flex-1 lg:w-95 lg:shrink-0 w-60 ps-9">
-          <p className="text-lg font-normal text-neutral-800 leading-[24.3px] tracking-[0.18px] w-90">
+        <div className="flex flex-col gap-5 flex-1 lg:w-95 lg:shrink-0 w-full md:ps-9">
+          <p className="text-lg font-normal text-neutral-800 leading-[24.3px] tracking-[0.18px] lg:w-90 w-full">
             Find out how customers from all kinds of industries achieve amazing outcomes with Airtable.
           </p>
-          <Button variant="outline" href="#" className="px-5 py-3 text-lg self-start mt-15">
+          <Button variant="outline" href="#" className="px-5 mx-auto lg:mx-0 py-3 text-lg self-start mt-15">
             Read customer stories
           </Button>
         </div>
@@ -70,13 +70,13 @@ export default function ResultsSection() {
           style={{ backgroundImage: `url('${slide.backgroundImage}')` }}
         >
           <div className="absolute inset-0 bg-linear-to-r from-black/10 to-black/50" />
-          <div className="absolute md:right-24 lg:right-98 top-1/2 -translate-y-1/2 translate-x-1/7 flex flex-col gap-4 z-10">
-            <EquinoxLogo width={140} height={22} />
+          <div className="absolute md:right-24 lg:right-98 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-10 translate-x-4/12 sm:translate-x-6/12 md:translate-x-1/7 lg:translate-x-6/5 xl:translate-x-1/7">
+            <EquinoxLogo width={140} height={22}  />
             <div className="flex items-center gap-3">
               <div className="w-0.75 self-stretch bg-accent-500 rounded-full" />
               <div>
-                <p className="text-4xl font-medium text-white leading-none">{slide.stat}</p>
-                <p className="text-md text-white/80 mt-1">{slide.statLabel}</p>
+                <p className="text-2xl md:text-3xl lg:text-4xl   font-medium text-white leading-none">{slide.stat}</p>
+                <p className="text-md  text-white/80 mt-1">{slide.statLabel}</p>
               </div>
             </div>
           </div>
@@ -88,13 +88,7 @@ export default function ResultsSection() {
               &ldquo;{slide.quote}&rdquo;
             </p>
             <div className="flex items-center gap-3">
-              <img
-                src={profileIconSvg}
-                width={48}
-                height={48}
-                alt={slide.personName}
-                className="rounded-full shrink-0"
-              />
+              <ProfileIcon width={48} height={48} className="rounded-full shrink-0" />
               <div>
                 <p className="text-xs font-medium text-neutral-800 leading-4.5">{slide.personName}</p>
                 <p className="text-xs font-normal text-neutral-800 leading-4.5">{slide.personTitle}</p>
@@ -128,7 +122,7 @@ export default function ResultsSection() {
                 onClick={() => setCurrent(i)}
                 aria-label={`Go to slide ${i + 1}`}
                 className={`h-1.25 rounded-full transition-all duration-300 ${
-                  i === current ? "w-10 bg-primary-300" : "w-3 bg-neutral-200"
+                  i === current ? "w-10 bg-primary-300" : "w-10 bg-neutral-200"
                 }`}
               />
             ))}

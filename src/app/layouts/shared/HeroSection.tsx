@@ -44,8 +44,8 @@ export default function HeroSection({
       className="common-section-large relative overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <Container className="flex flex-col lg:flex-row items-center gap-12 px-6 md:px-8 lg:px-16">
-        <div className="flex-1 flex flex-col gap-6">
+      <Container className="flex flex-col lg:flex-row items-center gap-8">
+        <div className="w-full lg:flex-none lg:w-[40%] flex flex-col gap-6">
           {badge && (
             <a
               href={badge.href ?? "#"}
@@ -59,11 +59,11 @@ export default function HeroSection({
             </a>
           )}
 
-          <h1 className="text-4xl lg:text-5xl font-medium text-primary-900 leading-tight lg:leading-17.5 tracking-normal">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium text-primary-900 leading-tight lg:leading-17.5 tracking-normal mx-auto">
             {headline}
           </h1>
 
-          <p className="text-lg font-medium text-primary-500 leading-[24.3px] tracking-[0.18px] max-w-md">
+          <p className="text-lg font-medium text-primary-500 leading-[24.3px] tracking-[0.18px] w-full lg:max-w-lg text-center lg:text-start">
             {subtext}
           </p>
 
@@ -87,7 +87,7 @@ export default function HeroSection({
           </div>
         </div>
 
-        <div className="flex-1 relative">
+        <div className="w-full lg:flex-1 relative">
           <Image
             src={foregroundImage}
             alt={foregroundImageAlt}

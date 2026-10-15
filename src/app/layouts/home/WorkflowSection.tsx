@@ -78,18 +78,16 @@ export default function WorkflowSection() {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-          <div className="flex-1 overflow-hidden">
+        <div className="flex flex-col lg:flex-row gap-8 items-start">
+          <div className="w-full lg:w-7/12 overflow-hidden">
             <Image
               src={cellImage}
               alt="Airtable workflow dashboard"
-              width={765}
-              height={590}
-              className="w-full max-h-112 md:h-130 object-fit"
+              className="w-full h-112 object-fill"
             />
           </div>
 
-          <div className="flex flex-col w-full lg:w-120 lg:shrink-0 ">
+          <div className="flex flex-col w-full lg:w-5/12">
             <div className="relative h-1 bg-gray-100 mb-1 rounded-t-xl">
               <div
                 className="absolute left-0 top-0 rounded-t-xl h-full bg-accent-300"
@@ -97,7 +95,7 @@ export default function WorkflowSection() {
               />
             </div>
 
-            <div className="flex flex-col divide-y divide-neutral-50  ">
+            <div className="flex flex-col divide-y divide-neutral-50">
               {accordionItems.map((item, i) => (
                 <div key={item.title}>
                   <button

@@ -1,24 +1,24 @@
-import Image from "next/image"
-import type { ReactNode } from "react"
-import Container from "../ui/Container"
-import ArrowRightIcon from "../icons/ArrowRightIcon"
+import Image from "next/image";
+import type { ReactNode } from "react";
+import Container from "../ui/Container";
+import ArrowRightIcon from "../icons/ArrowRightIcon";
 
 interface CTAProps {
-  text: string
-  href: string
+  text: string;
+  href: string;
 }
 
 interface FeatureSectionProps {
-  imagePosition?: "left" | "right"
-  image: string
-  imageWidth: number
-  imageHeight: number
-  imageAlt?: string
-  headline: ReactNode
-  headlineClassName?: string
-  subtext?: string
-  cta?: CTAProps
-  bgClassName?: string
+  imagePosition?: "left" | "right";
+  image: string;
+  imageWidth: number;
+  imageHeight: number;
+  imageAlt?: string;
+  headline: ReactNode;
+  headlineClassName?: string;
+  subtext?: string;
+  cta?: CTAProps;
+  bgClassName?: string;
 }
 
 export default function FeatureSection({
@@ -42,7 +42,7 @@ export default function FeatureSection({
       </h2>
 
       {subtext && (
-        <p className="text-lg font-normal text-neutral-800 leading-[24.3px] tracking-[0.18px]">
+        <p className="text-lg font-normal lg:w-[60%] text-neutral-800 leading-[24.3px] tracking-[0.18px]">
           {subtext}
         </p>
       )}
@@ -57,7 +57,7 @@ export default function FeatureSection({
         </a>
       )}
     </div>
-  )
+  );
 
   const imageCol = (
     <div className="flex-1 flex items-center justify-center">
@@ -69,16 +69,16 @@ export default function FeatureSection({
         className="w-full h-auto object-contain"
       />
     </div>
-  )
+  );
 
   return (
     <section className={`common-section-large ${bgClassName}`}>
       <Container
         className={`flex flex-col ${imagePosition === "left" ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-12`}
       >
-        {textCol}
+        <div className="lg:w-[55%]">{textCol}</div>
         {imageCol}
       </Container>
     </section>
-  )
+  );
 }

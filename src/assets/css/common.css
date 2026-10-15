@@ -1,15 +1,23 @@
 .common-section-large{
-    padding: 96px 0px;
-}
-
-.common-section-medium{
-    padding: 72px 0px;
-}
-
-.common-section-small{
     padding: 48px 0px;
 }
 
+.common-section-medium{
+    padding: 40px 0px;
+}
 
+.common-section-small{
+    padding: 32px 0px;
+}
 
-/* changes in naming and sections media query and all responsive css write here */
+@media (min-width: 768px) {
+    .common-section-large  { padding: 64px 0px; }
+    .common-section-medium { padding: 56px 0px; }
+    .common-section-small  { padding: 40px 0px; }
+}
+
+@media (min-width: 1024px) {
+    .common-section-large  { padding: 96px 0px; }
+    .common-section-medium { padding: 72px 0px; }
+    .common-section-small  { padding: 48px 0px; }
+}

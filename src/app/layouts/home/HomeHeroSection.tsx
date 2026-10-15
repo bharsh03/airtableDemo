@@ -14,7 +14,6 @@ export default function HomeHeroSection() {
       headline={
         <>
           Business operations.
-          <br />
           Redefined
         </>
       }
