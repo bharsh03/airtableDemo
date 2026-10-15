@@ -7,13 +7,15 @@ import Footer from "./layouts/common/Footer";
 
 const roboto = Roboto({
   subsets: ["latin"],
-  variable: "--font-roboto-family"
-})
-
+  variable: "--font-roboto-family",
+});
 
 export const metadata: Metadata = {
   title: "Air Table",
   description: "AirTable CRM for manage business",
+  icons: {
+    icon: "/icons/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -26,8 +28,8 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${roboto.className} antialiased w-full`}
       >
-        <Announcementbar/>
-        <Header/>
+        <Announcementbar />
+        <Header />
         {children}
         <Footer />
       </body>

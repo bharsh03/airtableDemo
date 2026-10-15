@@ -70,7 +70,7 @@ export default function ResultsSection() {
           style={{ backgroundImage: `url('${slide.backgroundImage}')` }}
         >
           <div className="absolute inset-0 bg-linear-to-r from-black/10 to-black/50" />
-          <div className="absolute md:right-24 lg:right-98 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-10 translate-x-4/12 sm:translate-x-6/12 md:translate-x-1/7 lg:translate-x-6/5 xl:translate-x-1/7">
+          <div className="absolute md:right-24 lg:right-98 xl:right-100 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-10 translate-x-4/12 sm:translate-x-6/12 md:translate-x-1/7 lg:translate-x-6/5 xl:translate-x-1/7">
             <EquinoxLogo width={140} height={22}  />
             <div className="flex items-center gap-3">
               <div className="w-0.75 self-stretch bg-accent-500 rounded-full" />
