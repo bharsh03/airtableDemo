@@ -10,6 +10,12 @@
     padding: 32px 0px;
 }
 
+@media (min-width: 320px) {
+    .common-section-large  { padding: 54px 0px; }
+    .common-section-medium { padding: 46px 0px; }
+    .common-section-small  { padding: 30px 0px; }
+}
+
 @media (min-width: 768px) {
     .common-section-large  { padding: 64px 0px; }
     .common-section-medium { padding: 56px 0px; }

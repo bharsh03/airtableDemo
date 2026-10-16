@@ -9,12 +9,16 @@
   --color-primary-900: #1A3866;
 
   /* Secondary — dark surfaces and text */
+  --color-secondary-50: #BBBBBB;
+  --color-secondary-100: #FC4777;
+  --color-secondary-200: #C2214C;
   --color-secondary-500: #070C14D1;
   --color-secondary-600: #040E20B0;
   --color-secondary-800: #181D26;
 
   /* Neutral — backgrounds, borders, gray text */
   --color-neutral-50:  #F0F6FF;
+  --color-netral-100: #757575;
   --color-neutral-200: #E0E2E6;
   --color-neutral-400: #C0C6D1B8;
   --color-neutral-500: #9297A0;
