@@ -36,7 +36,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const navRef = useRef<HTMLDivElement>(null)
-  const { isAuthenticated } = useAuth()
+  const { isAuthenticated, logout } = useAuth()
   const router = useRouter()
 
   useEffect(() => {
@@ -103,15 +103,23 @@ export default function Header() {
         <div className="flex-1" />
 
         <div className="hidden lg:flex items-center gap-4">
-          <Button variant="outline" href="#" className="px-4 py-2 text-sm whitespace-nowrap">
-            Request a demo
-          </Button>
-          <Button variant="filled" href="#" className="px-4 py-2 text-sm whitespace-nowrap">
-            Sign up for free
-          </Button>
-          <Button variant="ghost" href="/sign-in" className="text-sm">
-            Sign in
-          </Button>
+          {isAuthenticated ? (
+            <button className="btn-logout" onClick={() => { logout(); router.push("/") }}>
+              Logout
+            </button>
+          ) : (
+            <>
+              <Button variant="outline" href="#" className="px-4 py-2 text-sm whitespace-nowrap">
+                Request a demo
+              </Button>
+              <Button variant="filled" href="#" className="px-4 py-2 text-sm whitespace-nowrap">
+                Sign up for free
+              </Button>
+              <Button variant="ghost" href="/sign-in" className="text-sm">
+                Sign in
+              </Button>
+            </>
+          )}
         </div>
 
         <button
@@ -159,17 +167,19 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex flex-col gap-3 px-4 md:px-8 py-4 border-t border-gray-100">
-            <Button variant="filled" href="#" className="w-full py-3 text-md justify-center">
-              Sign up for free
-            </Button>
-            <Button variant="outline" href="/sign-in" className="w-full py-3 text-md justify-center">
-              Sign in
-            </Button>
-            <Button variant="ghost" href="#" className="w-full py-3 text-md justify-center">
-              Request a demo
-            </Button>
-          </div>
+          {!isAuthenticated && (
+            <div className="flex flex-col gap-3 px-4 md:px-8 py-4 border-t border-gray-100">
+              <Button variant="filled" href="#" className="w-full py-3 text-md justify-center">
+                Sign up for free
+              </Button>
+              <Button variant="outline" href="/sign-in" className="w-full py-3 text-md justify-center">
+                Sign in
+              </Button>
+              <Button variant="ghost" href="#" className="w-full py-3 text-md justify-center">
+                Request a demo
+              </Button>
+            </div>
+          )}
         </div>
       )}
     </header>

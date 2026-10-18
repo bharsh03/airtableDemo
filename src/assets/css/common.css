@@ -27,3 +27,40 @@
     .common-section-medium { padding: 72px 0px; }
     .common-section-small  { padding: 48px 0px; }
 }
+
+.section64 {
+    width: 100%;
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 24px;
+}
+
+@media (min-width: 768px) {
+    .section64 { padding: 48px 48px; }
+}
+
+@media (min-width: 1024px) {
+    .section64 { padding: 64px 95px; }
+}
+
+.btn-logout {
+    font-family: var(--font-roboto);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: var(--color-neutral-800);
+    background: transparent;
+    border: 1px solid var(--color-neutral-200);
+    border-radius: 8px;
+    padding: 6px 16px;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn-logout:hover {
+    color: var(--color-accent-500);
+    border-color: var(--color-accent-500);
+    background: var(--color-neutral-50);
+}

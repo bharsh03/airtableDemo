@@ -19,6 +19,7 @@ export interface AuthContextType {
   login: (data: LoginRequest) => Promise<void>;
   logout: () => void;
   isAuthenticated: boolean;
+  hydrated: boolean;
 }
 
 export interface AuthProviderProps {

@@ -8,10 +8,12 @@ const AuthContext = createContext<AuthContextType | null>(null)
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<LoginResponse | null>(null)
+  const [hydrated, setHydrated] = useState(false)
 
   useEffect(() => {
     const stored = localStorage.getItem("auth_user")
     if (stored) setUser(JSON.parse(stored))
+    setHydrated(true)
   }, [])
 
   async function login(data: LoginRequest) {
@@ -27,7 +29,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, isAuthenticated: !!user }}>
+    <AuthContext.Provider value={{ user, login, logout, isAuthenticated: !!user, hydrated }}>
       {children}
     </AuthContext.Provider>
   )

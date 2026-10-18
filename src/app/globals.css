@@ -2,13 +2,11 @@
 @import "../assets/css/common.css";
 
 @theme {
-  /* Primary — interactive blues: buttons, links, active states */
   --color-primary-100: #CCE0FE;
   --color-primary-300: #1B61C9;
   --color-primary-500: #254FAD;
   --color-primary-900: #1A3866;
 
-  /* Secondary — dark surfaces and text */
   --color-secondary-50: #BBBBBB;
   --color-secondary-100: #FC4777;
   --color-secondary-200: #C2214C;
@@ -16,7 +14,6 @@
   --color-secondary-600: #040E20B0;
   --color-secondary-800: #181D26;
 
-  /* Neutral — backgrounds, borders, gray text */
   --color-neutral-50:  #F0F6FF;
   --color-netral-100: #757575;
   --color-neutral-200: #E0E2E6;
@@ -27,15 +24,14 @@
   --color-neutral-800: #333840;
   --color-neutral-900: #333333;
 
-  /* Accent — highlights and special elements */
   --color-accent-300: #0AB2FA;
   --color-accent-500: #F82B60;
 
-  /* Purple — FloatingCTA component */
   --color-purple-50:  #EEE8FA;
   --color-purple-500: #622CA0;
 
-  
+  --color-badge-green: #CFF5D1;
+
   --text-xs: 12px;
   --text-sm: 14px;
   --text-md: 16px;
@@ -45,13 +41,12 @@
   --text-3xl: 32px;
   --text-4xl: 40px;
   --text-5xl: 64px;
-  
 
   --font-weight-normal: 400;
   --font-weight-medium: 500;
 
-
   --font-roboto: var(--font-roboto-family);
+  --font-inter: var(--font-inter-family);
 
   --animate-marquee: marquee 450s linear infinite;
 
@@ -68,5 +63,5 @@
     0px 1px 3px 0px #00000014,
     0px 0px 2px 0px #00000014,
     0px 0px 1px 0px #00000052;
-  backdrop-filter: blur(6px); 
+  backdrop-filter: blur(6px);
 }

@@ -6,15 +6,16 @@ import { useRouter } from "next/navigation"
 import { useAuth } from "@/contexts/AuthContext"
 
 export default function ProtectedLayout({ children }: { children: ReactNode }) {
-  const { isAuthenticated } = useAuth()
+  const { isAuthenticated, hydrated } = useAuth()
   const router = useRouter()
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (hydrated && !isAuthenticated) {
       router.replace("/sign-in")
     }
-  }, [isAuthenticated, router])
+  }, [hydrated, isAuthenticated, router])
 
+  if (!hydrated) return null
   if (!isAuthenticated) return null
 
   return <>{children}</>

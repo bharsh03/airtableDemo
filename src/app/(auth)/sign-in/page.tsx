@@ -91,7 +91,7 @@ export default function SignInPage() {
           </div>
 
           <div className="mt-5 md:w-5/11 xl:w-4/11 relative overflow-hidden rounded-2xl mx-auto">
-            <Image src={bgImage} alt="" fill className="object-cover" />
+            <Image src={bgImage} alt="" fill sizes="50vw" priority className="object-cover" />
             <div className="relative z-10 pt-18 px-12 pb-80">
               <p className="text-secondary-100 text-sm font-medium">
                 Quarterly Webinar
