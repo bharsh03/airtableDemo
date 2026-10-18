@@ -114,7 +114,7 @@ function CheckIcon({ dark }: { dark: boolean }) {
 export default function PricingSection() {
   return (
     <section className="w-full">
-      <div className="section64">
+      <div className="page-container">
         <h2 className="text-center font-medium text-[41px] leading-14 tracking-[-0.16px] text-neutral-900 mb-10 md:mb-12">
           A plan for every organization&apos;s needs
         </h2>

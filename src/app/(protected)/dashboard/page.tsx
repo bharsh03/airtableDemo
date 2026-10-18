@@ -1,5 +1,6 @@
 "use client"
 
+import Footer from "@/layouts/common/Footer"
 import Header from "@/layouts/common/Header"
 import PricingSection from "@/layouts/home/PricingSection"
 
@@ -10,6 +11,7 @@ export default function DashboardPage() {
       <main className="min-h-screen bg-white">
         <PricingSection />
       </main>
+      <Footer/>
     </>
   )
 }

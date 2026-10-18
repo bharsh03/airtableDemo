@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "../assets/css/common.css";
+@import "../assets/css/pricing.css";
 
 @theme {
   --color-primary-100: #CCE0FE;
