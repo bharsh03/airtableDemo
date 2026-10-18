@@ -53,7 +53,7 @@
 
   --font-roboto: var(--font-roboto-family);
 
-  --animate-marquee: marquee 35s linear infinite;
+  --animate-marquee: marquee 450s linear infinite;
 
   @keyframes marquee {
     from { transform: translateX(0); }

@@ -8,6 +8,7 @@ interface ButtonProps {
   children: ReactNode
   className?: string
   onClick?: () => void
+  disabled?: boolean
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
@@ -23,20 +24,21 @@ export default function Button({
   children,
   className = "",
   onClick,
+  disabled,
 }: ButtonProps) {
   const classes =
-    `inline-flex items-center justify-center font-medium transition-colors ${variantClasses[variant]} ${className}`.trim()
+    `inline-flex items-center justify-center font-medium transition-colors ${variantClasses[variant]} disabled:bg-primary-300 disabled:opacity-50 disabled:cursor-not-allowed ${className}`.trim()
 
   if (href) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} suppressHydrationWarning>
         {children}
       </a>
     )
   }
 
   return (
-    <button onClick={onClick} className={classes}>
+    <button onClick={onClick} disabled={disabled} className={classes}>
       {children}
     </button>
   )

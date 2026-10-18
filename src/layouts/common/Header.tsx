@@ -1,11 +1,13 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import AirtableLogo from "../icons/AirtableLogo"
 import ChevronRightIcon from "../icons/ChevronRightIcon"
 import HamburgerIcon from "../icons/HamburgerIcon"
 import CloseIcon from "../icons/CloseIcon"
 import Button from "../ui/Button"
+import { useAuth } from "@/contexts/AuthContext"
 
 const navItems = [
   {
@@ -34,6 +36,8 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const navRef = useRef<HTMLDivElement>(null)
+  const { isAuthenticated } = useAuth()
+  const router = useRouter()
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -60,7 +64,13 @@ export default function Header() {
           {navItems.map((item) => (
             <div key={item.label} className="relative">
               <button
-                onClick={() => item.hasDropdown && toggleDropdown(item.label)}
+                onClick={() => {
+                  if (item.label === "Pricing") {
+                    router.push(isAuthenticated ? "/dashboard" : "/sign-in")
+                  } else {
+                    item.hasDropdown && toggleDropdown(item.label)
+                  }
+                }}
                 className="flex items-center gap-1.5 px-3 py-[3.25px] text-md font-medium leading-none text-secondary-800 hover:text-primary-300 hover:bg-neutral-50 rounded-md transition-colors cursor-pointer"
               >
                 {item.label}
@@ -99,7 +109,7 @@ export default function Header() {
           <Button variant="filled" href="#" className="px-4 py-2 text-sm whitespace-nowrap">
             Sign up for free
           </Button>
-          <Button variant="ghost" href="#" className="text-sm">
+          <Button variant="ghost" href="/sign-in" className="text-sm">
             Sign in
           </Button>
         </div>
@@ -153,7 +163,7 @@ export default function Header() {
             <Button variant="filled" href="#" className="w-full py-3 text-md justify-center">
               Sign up for free
             </Button>
-            <Button variant="outline" href="#" className="w-full py-3 text-md justify-center">
+            <Button variant="outline" href="/sign-in" className="w-full py-3 text-md justify-center">
               Sign in
             </Button>
             <Button variant="ghost" href="#" className="w-full py-3 text-md justify-center">

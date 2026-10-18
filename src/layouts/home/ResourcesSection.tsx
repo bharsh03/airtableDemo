@@ -1,10 +1,18 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Button from "../ui/Button"
 import cardImage1 from "@/assets/images/div.CardImg-module_cardImageTop_.png"
 import cardImage2 from "@/assets/images/div.CardImg-module_cardImageTop__3f9.png"
 import cardImage3 from "@/assets/images/div.CardImg-module_cardImageTop__3f9q_.png"
+import { getBlogs } from "@/api/apihandler"
+import type { Blog } from "@/app/types"
 
-const cards = [
+const images = [cardImage1.src, cardImage2.src, cardImage3.src]
+const types = ["BLOG", "WEBINAR"]
+
+const fallbackCards = [
   {
     type: "BLOG",
     image: cardImage1.src,
@@ -38,6 +46,25 @@ const cards = [
 ]
 
 export default function ResourcesSection() {
+  const [cards, setCards] = useState(fallbackCards)
+
+  useEffect(() => {
+    getBlogs().then((res) => {
+      const raw = res.data as unknown as { posts?: Blog[]; blogs?: Blog[] }
+      const blogs: Blog[] = raw.posts ?? raw.blogs ?? []
+      if (blogs.length > 0) {
+        setCards(
+          blogs.map((b, i) => ({
+            type: types[i % 2],
+            image: images[i % 3],
+            title: b.title,
+            description: b.body,
+          }))
+        )
+      }
+    }).catch(() => {})
+  }, [])
+
   return (
     <section className="common-section-medium bg-neutral-50">
       <div className="flex flex-col lg:flex-row items-start gap-8 px-6 md:px-8 lg:px-27">
@@ -59,9 +86,9 @@ export default function ResourcesSection() {
       </div>
 
       <div className="pt-12 pb-8 overflow-hidden group">
-        <div className="flex gap-4 w-max animate-marquee group-hover:[animation-play-state:paused]">
+        <div className="flex gap-4 w-max animate-marquee group-hover:[animation-play-state:paused]" style={{ ['--animate-marquee' as string]: 'marquee 450s linear infinite' }}>
           {[...cards, ...cards].map((card, i) => (
-            <div key={i} className="w-72.5 bg-white rounded-xl overflow-hidden shrink-0 flex flex-col">
+            <div key={i} className="w-72.5 bg-white rounded-xl overflow-hidden shrink-0 flex flex-col transition-all duration-300 ease-in-out group/card">
               <span className="text-xs font-medium text-neutral-800 tracking-[0.08em] uppercase px-4 pt-3 pb-2 block">
                 {card.type}
               </span>
@@ -72,11 +99,11 @@ export default function ResourcesSection() {
                 height={163}
                 className="w-full h-40.75 object-cover"
               />
-              <div className="p-4 flex flex-col gap-3 flex-1">
-                <h3 className="text-lg font-medium text-neutral-900 leading-[24.3px] tracking-[0.18px]">
+              <div className="p-4 flex flex-col gap-3">
+                <h3 className="text-lg font-medium text-neutral-900 leading-[24.3px] tracking-[0.18px] line-clamp-2 group-hover/card:line-clamp-none transition-all duration-300">
                   {card.title}
                 </h3>
-                <p className="text-md font-normal text-secondary-600 leading-[21.6px] tracking-[0.16px]">
+                <p className="text-md font-normal text-secondary-600 leading-[21.6px] tracking-[0.16px] line-clamp-3 group-hover/card:line-clamp-none transition-all duration-300">
                   {card.description}
                 </p>
               </div>
