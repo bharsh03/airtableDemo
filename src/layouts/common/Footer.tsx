@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import Container from "../ui/Container"
-import footerLogoSvg from "@/assets/icons/Link → SVG.svg"
 import FacebookIcon from "../icons/FacebookIcon"
 import LinkedInIcon from "../icons/LinkedInIcon"
 import InstagramIcon from "../icons/InstagramIcon"
@@ -10,6 +9,7 @@ import YouTubeIcon from "../icons/YouTubeIcon"
 import XIcon from "../icons/XIcon"
 import AppStoreBadge from "../icons/AppStoreBadge"
 import GooglePlayBadge from "../icons/GooglePlayBadge"
+import { AirtableIcon } from "../icons"
 
 const navLinks = [
   { text: "Platform", href: "#" },
@@ -67,7 +67,7 @@ export default function Footer() {
     <footer className="bg-white pt-8 pb-8">
       <Container>
         <div className="flex items-center mb-6">
-          <img src={footerLogoSvg} width={32} height={27} alt="Airtable" />
+          <AirtableIcon />
           <nav className="hidden lg:flex items-center gap-8 ml-8.5">
             {navLinks.map(link => (
               <a

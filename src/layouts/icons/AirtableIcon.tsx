@@ -1,13 +1,14 @@
 interface AirtableIconProps {
-  size?: number;
+  width?: number;
+  height?: number;
   className?: string;
 }
 
-const AirtableIcon = ({ size = 32, className = "" }: AirtableIconProps) => {
+const AirtableIcon = ({ width = 32, height= 27, className = "" }: AirtableIconProps) => {
   return (
     <svg
-      width={size}
-      height={size}
+      width={width}
+      height={height}
       viewBox="0 0 32 27"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
