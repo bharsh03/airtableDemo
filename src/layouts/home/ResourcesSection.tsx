@@ -1,84 +1,99 @@
-"use client"
+import Image from "next/image";
+import Button from "../ui/Button";
+import cardImage1 from "@/assets/images/div.CardImg-module_cardImageTop_.png";
+import cardImage2 from "@/assets/images/div.CardImg-module_cardImageTop__3f9.png";
+import cardImage3 from "@/assets/images/div.CardImg-module_cardImageTop__3f9q_.png";
+import { getBlogs } from "@/api/apihandler";
+import type { Blog } from "@/app/types";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import Button from "../ui/Button"
-import cardImage1 from "@/assets/images/div.CardImg-module_cardImageTop_.png"
-import cardImage2 from "@/assets/images/div.CardImg-module_cardImageTop__3f9.png"
-import cardImage3 from "@/assets/images/div.CardImg-module_cardImageTop__3f9q_.png"
-import { getBlogs } from "@/api/apihandler"
-import type { Blog } from "@/app/types"
-
-const images = [cardImage1.src, cardImage2.src, cardImage3.src]
-const types = ["BLOG", "WEBINAR"]
+const cardImages = [cardImage1.src, cardImage2.src, cardImage3.src];
+const cardTypes = ["BLOG", "WEBINAR"];
 
 const fallbackCards = [
   {
     type: "BLOG",
     image: cardImage1.src,
     title: "Forrester Study: The Crisis of Fractured Organizations",
-    description: "Read the full study to learn about how silos impact your business, and why it's time to rebuild the connections between your teams.",
+    description:
+      "Read the full study to learn about how silos impact your business, and why it's time to rebuild the connections between your teams.",
   },
   {
     type: "BLOG",
     image: cardImage2.src,
     title: "How 6 world-class companies make an outsized impact",
-    description: "Discover how leading global companies are using connected apps to dismantle silos.",
+    description:
+      "Discover how leading global companies are using connected apps to dismantle silos.",
   },
   {
     type: "WEBINAR",
     image: cardImage3.src,
     title: "Airtable Leaders Forum: Product Roadmap",
-    description: "Get a sneak peek of the roadmap from Ilan Frank, VP of Product at Airtable, and see the future of Airtable as a connected apps platform.",
+    description:
+      "Get a sneak peek of the roadmap from Ilan Frank, VP of Product at Airtable, and see the future of Airtable as a connected apps platform.",
   },
   {
     type: "BLOG",
     image: cardImage1.src,
     title: "Streamline product operations with Airtable",
-    description: "Learn how teams connect data and workflows with a single source of truth to automate work to free up time.",
+    description:
+      "Learn how teams connect data and workflows with a single source of truth to automate work to free up time.",
   },
   {
     type: "WEBINAR",
     image: cardImage2.src,
     title: "Scale operations across your business",
-    description: "See how leading teams use Airtable to connect data, automate processes, and drive efficiency at scale.",
+    description:
+      "See how leading teams use Airtable to connect data, automate processes, and drive efficiency at scale.",
   },
-]
+];
 
-export default function ResourcesSection() {
-  const [cards, setCards] = useState(fallbackCards)
+type DisplayCard = {
+  type: string;
+  image: string;
+  title: string;
+  description: string;
+};
 
-  useEffect(() => {
-    getBlogs().then((res) => {
-      const raw = res.data as unknown as { posts?: Blog[]; blogs?: Blog[] }
-      const blogs: Blog[] = raw.posts ?? raw.blogs ?? []
-      if (blogs.length > 0) {
-        setCards(
-          blogs.map((b, i) => ({
-            type: types[i % 2],
-            image: images[i % 3],
-            title: b.title,
-            description: b.body,
-          }))
-        )
-      }
-    }).catch(() => {})
-  }, [])
+function mapBlogs(blogs: Blog[]): DisplayCard[] {
+  if (blogs.length === 0) return fallbackCards;
+  return blogs.map((b, i) => ({
+    type: cardTypes[i % 2],
+    image: cardImages[i % 3],
+    title: b.title,
+    description: b.body,
+  }));
+}
+
+export default async function ResourcesSection() {
+  let blogs: Blog[] | undefined;
+  try {
+    const res = await getBlogs();
+    const raw = res.data as unknown as { posts?: Blog[]; blogs?: Blog[] };
+    blogs = raw.posts ?? raw.blogs;
+  } catch {}
+  const cards = blogs ? mapBlogs(blogs) : fallbackCards;
 
   return (
     <section className="common-section-medium bg-neutral-50">
       <div className="flex flex-col lg:flex-row items-start gap-8 px-6 md:px-8 lg:px-27">
         <h2 className="flex-1 text-xl font-medium text-secondary-800 leading-12 tracking-normal">
-          Looking for inspiration?<br />
-          Start with<br />
+          Looking for inspiration?
+          <br />
+          Start with
+          <br />
           these resources.
         </h2>
         <div className="flex flex-col gap-5 lg:w-106.75 lg:shrink-0">
           <p className="text-lg font-normal text-neutral-800 leading-[24.3px] tracking-[0.18px]">
-            Stay one step ahead of the trends with the latest insights, research, and best practices for your teams.
+            Stay one step ahead of the trends with the latest insights,
+            research, and best practices for your teams.
           </p>
           <div>
-            <Button variant="outline" href="#" className="px-5 py-3 text-md self-start">
+            <Button
+              variant="outline"
+              href="#"
+              className="px-5 py-3 text-md self-start"
+            >
               Explore resources
             </Button>
           </div>
@@ -86,9 +101,17 @@ export default function ResourcesSection() {
       </div>
 
       <div className="pt-12 pb-8 overflow-hidden group">
-        <div className="flex gap-4 w-max animate-marquee group-hover:[animation-play-state:paused]" style={{ ['--animate-marquee' as string]: 'marquee 450s linear infinite' }}>
+        <div
+          className="flex gap-4 w-max animate-marquee group-hover:[animation-play-state:paused]"
+          style={{
+            ["--animate-marquee" as string]: "marquee 450s linear infinite",
+          }}
+        >
           {[...cards, ...cards].map((card, i) => (
-            <div key={i} className="w-72.5 bg-white rounded-xl overflow-hidden shrink-0 flex flex-col transition-all duration-300 ease-in-out group/card">
+            <div
+              key={i}
+              className="w-72.5 bg-white rounded-xl overflow-hidden shrink-0 flex flex-col transition-all duration-300 ease-in-out group/card"
+            >
               <span className="text-xs font-medium text-neutral-800 tracking-[0.08em] uppercase px-4 pt-3 pb-2 block">
                 {card.type}
               </span>
@@ -112,5 +135,5 @@ export default function ResourcesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
