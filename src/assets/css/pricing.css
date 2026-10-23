@@ -1,3 +1,18 @@
+@theme {
+  --text-pricing-name: 26.14px;
+  --text-pricing-badge: 11px;
+  --text-pricing-price: 58.63px;
+  --text-pricing-body: 13px;
+  --text-pricing-action: 15.75px;
+
+  --leading-pricing-name: 35px;
+  --leading-pricing-badge: 13.75px;
+  --leading-pricing-price: 80px;
+  --leading-pricing-feature: 16.25px;
+
+  --tracking-pricing: -0.16px;
+}
+
 .page-container {
     width: 100%;
     max-width: 1250px;

@@ -113,9 +113,9 @@ function CheckIcon({ dark }: { dark: boolean }) {
 
 export default function PricingSection() {
   return (
-    <section className="w-full">
+    <section className="w-full font-inter">
       <div className="page-container">
-        <h2 className="text-center font-medium text-[41px] leading-14 tracking-[-0.16px] text-neutral-900 mb-10 md:mb-12">
+        <h2 className="text-center font-medium text-3xl md:text-4xl leading-14 tracking-pricing text-neutral-900 mb-10 md:mb-12">
           A plan for every organization&apos;s needs
         </h2>
 
@@ -128,6 +128,8 @@ export default function PricingSection() {
             const descColor = plan.dark ? "text-neutral-500" : "text-neutral-700"
             const dividerColor = plan.dark ? "border-white/10" : "border-neutral-200"
             const noteColor = plan.dark ? "text-neutral-500" : "text-neutral-500"
+            const nameColor = plan.dark ? "text-white" : "text-neutral-900"
+            const descTextColor = plan.dark ? "text-neutral-500" : "text-neutral-900"
 
             return (
               <div
@@ -135,75 +137,28 @@ export default function PricingSection() {
                 className={`flex flex-col rounded-2xl border p-6 ${cardBase} ${borderClass}`}
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <span
-                    className="font-medium"
-                    style={{
-                      fontFamily: "var(--font-inter)",
-                      fontSize: "26.14px",
-                      lineHeight: "35px",
-                      letterSpacing: "-0.16px",
-                      color: plan.dark ? "#ffffff" : "#333333",
-                    }}
-                  >
+                  <span className={`font-medium text-2xl leading-8 md:text-pricing-name md:leading-pricing-name tracking-pricing ${nameColor}`}>
                     {plan.name}
                   </span>
                   {plan.badge && (
-                    <span
-                      className="rounded-full px-2 py-0.5 bg-badge-green"
-                      style={{
-                        fontFamily: "var(--font-inter)",
-                        fontWeight: 500,
-                        fontSize: "11px",
-                        lineHeight: "13.75px",
-                        letterSpacing: "-0.16px",
-                        color: "#333333",
-                      }}
-                    >
+                    <span className="rounded-full px-2 py-0.5 bg-badge-green font-medium text-pricing-badge leading-pricing-badge tracking-pricing text-neutral-900">
                       {plan.badge}
                     </span>
                   )}
                 </div>
 
-                <p
-                  className="mb-5 min-h-15"
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontSize: "13px",
-                    fontWeight: 400,
-                    lineHeight: "20px",
-                    letterSpacing: "-0.16px",
-                    color: plan.dark ? "#9297A0" : "#333333",
-                  }}
-                >
+                <p className={`mb-5 min-h-15 font-normal text-xs leading-4 md:text-pricing-body md:leading-5 tracking-pricing ${descTextColor}`}>
                   {plan.description}
                 </p>
 
                 <div className="mb-5 min-h-26 flex flex-col justify-start">
                   {plan.priceDisplay === "Free" ? (
-                    <span
-                      style={{
-                        fontFamily: "var(--font-inter)",
-                        fontWeight: 500,
-                        fontSize: "58.63px",
-                        lineHeight: "80px",
-                        letterSpacing: "-0.16px",
-                        color: "#333333",
-                      }}
-                    >
+                    <span className="font-medium text-4xl leading-10 md:text-pricing-price md:leading-pricing-price tracking-pricing text-neutral-900">
                       Free
                     </span>
                   ) : plan.priceDisplay ? (
                     <div className="flex items-start gap-1.5">
-                      <span
-                        style={{
-                          fontFamily: "var(--font-inter)",
-                          fontWeight: 500,
-                          fontSize: "58.63px",
-                          lineHeight: "80px",
-                          letterSpacing: "-0.16px",
-                          color: plan.dark ? "#ffffff" : "#333333",
-                        }}
-                      >
+                      <span className={`font-medium text-4xl leading-10 md:text-pricing-price md:leading-pricing-price tracking-pricing ${nameColor}`}>
                         {plan.priceDisplay}
                       </span>
                       {plan.priceUnit && (
@@ -226,15 +181,7 @@ export default function PricingSection() {
                     href={plan.cta.href}
                     className="w-full py-2.5 justify-center"
                   >
-                    <span
-                      style={{
-                        fontFamily: "var(--font-inter)",
-                        fontWeight: 600,
-                        fontSize: "15.75px",
-                        lineHeight: "20px",
-                        letterSpacing: "-0.16px",
-                      }}
-                    >
+                    <span className="font-semibold text-sm md:text-pricing-action leading-5 tracking-pricing">
                       {plan.cta.label}
                     </span>
                   </Button>
@@ -246,33 +193,14 @@ export default function PricingSection() {
 
                 <hr className={`my-5 border-t ${dividerColor}`} />
 
-                <p
-                  className="mb-3"
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontWeight: 500,
-                    fontSize: "15.75px",
-                    lineHeight: "20px",
-                    letterSpacing: "-0.16px",
-                    color: plan.dark ? "#ffffff" : "#333333",
-                  }}
-                >
+                <p className={`mb-3 font-medium text-sm md:text-pricing-action leading-5 tracking-pricing ${nameColor}`}>
                   {plan.featuresHeading}
                 </p>
                 <ul className="flex flex-col gap-2">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2">
                       <CheckIcon dark={plan.dark} />
-                      <span
-                        style={{
-                          fontFamily: "var(--font-inter)",
-                          fontWeight: 400,
-                          fontSize: "13px",
-                          lineHeight: "16.25px",
-                          letterSpacing: "-0.16px",
-                          color: plan.dark ? "#9297A0" : "#333333",
-                        }}
-                      >
+                      <span className={`font-normal text-xs leading-4 md:text-pricing-body md:leading-pricing-feature tracking-pricing ${descTextColor}`}>
                         {feature}
                       </span>
                     </li>

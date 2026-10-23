@@ -27,9 +27,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <body
-        className={`${roboto.variable} ${roboto.className} ${inter.variable} antialiased w-full`}
+        className={`${roboto.variable} ${roboto.className} antialiased w-full`}
       >
         <AuthProvider>{children}</AuthProvider>
       </body>
